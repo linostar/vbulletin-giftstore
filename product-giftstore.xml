@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<product productid="giftstore" active="1">
+	<title>Gift Store</title>
+	<description>Gift Store</description>
+	<version>0.1</version>
+	<url />
+	<versioncheckurl />
+	<dependencies>
+	</dependencies>
+	<codes>
+		<code version="0.1">
+			<installcode><![CDATA[$db->query("CREATE TABLE " . TABLE_PREFIX . "giftstore (gift_id INT NOT NULL AUTO_INCREMENT, seller_id INT NOT NULL, gift_name VARCHAR(128) NOT NULL, gift_description VARCHAR(256), gift_price INT NOT NULL, PRIMARY KEY (gift_id), INDEX (seller_id))");
+$db->query("CREATE TABLE " . TABLE_PREFIX . "giftpoints_give (seller_id INT NOT NULL, points_count INT NOT NULL, PRIMARY KEY (seller_id))");
+$db->query("CREATE TABLE " . TABLE_PREFIX . "giftpoints_spend (seller_id INT NOT NULL, buyer_id INT NOT NULL, points_count INT NOT NULL, PRIMARY KEY (seller_id, buyer_id))");
+$db->query("CREATE TABLE " . TABLE_PREFIX . "giftbuy (buy_id INT NOT NULL AUTO_INCREMENT, gift_id INT NOT NULL, buyer_id INT NOT NULL, status TINYINT(1) NOT NULL, seller_comment VARCHAR(256), buyer_comment VARCHAR(256), PRIMARY KEY (buy_id))");]]></installcode>
+			<uninstallcode><![CDATA[$db->query("DROP TABLE " . TABLE_PREFIX . "giftstore");
+$db->query("DROP TABLE " . TABLE_PREFIX . "giftpoints_give");
+$db->query("DROP TABLE " . TABLE_PREFIX . "giftpoints_spend");
+$db->query("DROP TABLE " . TABLE_PREFIX . "giftbuy");]]></uninstallcode>
+		</code>
+	</codes>
+	<templates>
+	</templates>
+	<stylevardfns>
+	</stylevardfns>
+	<stylevars>
+	</stylevars>
+	<plugins>
+	</plugins>
+	<phrases>
+	</phrases>
+	<options>
+	</options>
+	<helptopics>
+	</helptopics>
+	<cronentries>
+	</cronentries>
+	<faqentries>
+	</faqentries>
+	<navigation>
+	</navigation>
+</product>
